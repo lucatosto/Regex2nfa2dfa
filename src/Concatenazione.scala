@@ -30,10 +30,8 @@ case class Concatenazione (line: Any) {
     def rowSeparator(colSizes: Seq[Int]) = colSizes map { "-" * _ } mkString("+", "+", "+")
   }
 
-  //TODO: a dinamica, intestastione flag (true o false variabili)
+  //TODO: a dinamica, intestastione flag (true o false variabili)    //a/b
   println("NFA")
-  println(Tabulator.format(List(List("Stati", "a", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") )))
-  println("DFA")
-  println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
-
+  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1,3)", "S1(2,5)", "S2(4,5)", "false"), List("S1(2,5)", "/", "/", "true"))));
+  //non so fare la tabella DFA
 }

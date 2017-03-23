@@ -10,7 +10,8 @@ object index {
       case "ab" => Unione(line)
       case "a*" => Stella(line)
       case "a|b" => Concatenazione(line)
-      case "ab*" => Complesso(line)
+      case "ab*" => Complesso1(line)   //(aub)*
+      case "a|b*" => Complesso2(line)   //(a/b)*
       case _ => "errore"
     }
     casistica(line)

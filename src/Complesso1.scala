@@ -2,7 +2,7 @@
   * Created by lucatosto on 20/03/17.
   */
 import Array._
-case class Unione (line: Any) {
+case class Complesso1 (line: Any) {
   //println("----------------------"+line)
   object Tabulator {
     def format(table: Seq[Seq[Any]]) = table match {
@@ -30,9 +30,10 @@ case class Unione (line: Any) {
     def rowSeparator(colSizes: Seq[Int]) = colSizes map { "-" * _ } mkString("+", "+", "+")
   }
 
-  //TODO: a dinamica, intestastione flag (true o false variabili)    //aUb
+  //TODO: a dinamica, intestastione flag (true o false variabili)  //(aub)*
   println("NFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") )))
+  println(Tabulator.format(List(List("Stati", "a", "b", "ε", "flag"), List("0" , "/", "/", "1,4", "false"), List("1" , "2", "/", "/", "false"), List("2" , "/", "3","/", "false"), List("3", "/", "/","1,4", "false"),List("3" , "/", "/","/", "true") )))
   println("DFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") )))
+  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1)", "S1(2)", "/", "false"), List("S1(2)", "/", "S2(1,3,4)", "false"), List("S2(1,3,4)", "S1(2)", "/", "true"))));
+
 }

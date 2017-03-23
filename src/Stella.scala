@@ -1,6 +1,8 @@
 /**
   * Created by lucatosto on 20/03/17.
   */
+import java.io.File
+
 import Array._
 case class Stella (line: Any) {
   //println("----------------------"+line)
@@ -30,10 +32,27 @@ case class Stella (line: Any) {
     def rowSeparator(colSizes: Seq[Int]) = colSizes map { "-" * _ } mkString("+", "+", "+")
   }
 
-  //TODO: a dinamica, intestastione flag (true o false variabili)
+
+
+  //TODO: a dinamica, intestastione flag (true o false variabili) //Luca:secondo me non bisogna farlo, possiamo usare un pattern matching
   println("NFA")
-  println(Tabulator.format(List(List("Stati", "a", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") )))
+  println(Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0  " , "/ ", " 1,3 ", "false"), List("1  " , "2 ", " / ", "false"), List("2  " , "/ ", " 1,3 ", "false"), List("3  " , "/ ", " / ", "true") )))
   println("DFA")
   println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
 
+
+
+  //Questo è un esempio di scrittura su file. Dimmi che ne pensi. Non sono riuscito a tabularle bene, ma nemmeno ci ho provato tanto.
+  def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
+    val p = new java.io.PrintWriter(f)
+    try { op(p) } finally { p.close() }
+  }
+
+
+  val data = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))
+  printToFile(new File("example.txt")) {
+    p => data.foreach(p.println)
+  }
+
+  println("ho scritto il file 'example.txt'")
 }
