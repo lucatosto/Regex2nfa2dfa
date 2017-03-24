@@ -7,11 +7,12 @@ object index {
     val line=Console.readLine()
     println("hai inserito " + line)
     def casistica(esp: Any): Any= esp match {
-      case "ab" => Unione(line)
+        //daniele : ho modificato nelle stringhe sostituendo concatenazione con unione.
+      case "a|b" => Unione(line)   //    modificare stringa, l'unione è a|b
       case "a*" => Stella(line)
-      case "a|b" => Concatenazione(line)
-      case "ab*" => Complesso1(line)   //(aub)*
-      case "a|b*" => Complesso2(line)   //(a/b)*
+      case "ab" => Concatenazione(line)    //modificare stringa : la concatenazione è ab
+      case "(a|b)*" => Complesso1(line)   //
+      case "(ab)*" => Complesso2(line)   //
       case _ => "errore"
     }
     casistica(line)
