@@ -13,10 +13,15 @@ object index {
         //casi. Per questo linguaggio abbiamo fatto tutte le regex possibili.
       case "a|b" => Unione(line)   //    modificare stringa, l'unione è a|b
       case "a*" => Stella(line)
+      case "b*"=> StellaB(line)
       case "ab" => Concatenazione(line)    //modificare stringa : la concatenazione è ab
       case "(a|b)*" => Complesso1(line)   //
       case "(ab)*" => Complesso2(line)   //
-      case _ => "errore"
+      case "a*b"=> Complesso3(line)
+      case "ab*"=> Complesso4(line)
+      case "(a*)|b"=>Complesso5(line)
+      case "a|(b)*"=> Complesso6(line)
+      case _ => "errore, la frase non appartiene al linguaggio"
     }
     casistica(line)
   }
