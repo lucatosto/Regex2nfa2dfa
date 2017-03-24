@@ -38,7 +38,7 @@ case class Stella (line: Any) {
   println("NFA")
   println(Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0  " , "/ ", " 1,3 ", "false"), List("1  " , "2 ", " / ", "false"), List("2  " , "/ ", " 1,3 ", "false"), List("3  " , "/ ", " / ", "true") )))
   println("DFA")
-  println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
+println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
 
 
  /* val f= new File("esempio.txt")
@@ -57,10 +57,13 @@ case class Stella (line: Any) {
   }
 
 
-  val data = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))
-  printToFile(new File("example.txt")) {
+  val data ="inserimento valori: NFA:\n"+ Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))+ "\n\n\n\nInserimento DFA\n"+ Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true")))
+  printToFile(new File("catalogo_conversioni.txt")) {
+
     p => data.foreach(p.print)
+
+
   }
 
-  println("ho scritto il file 'example.txt'")
+  println("conversione completata, visualizza il file catalgo_conversioni")
 }
