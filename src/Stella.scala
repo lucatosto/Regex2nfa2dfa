@@ -1,7 +1,7 @@
 /**
   * Created by lucatosto on 20/03/17.
   */
-import java.io.File
+import java.io.{File, FileWriter, PrintWriter}
 
 import Array._
 case class Stella (line: Any) {
@@ -41,6 +41,14 @@ case class Stella (line: Any) {
   println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
 
 
+ /* val f= new File("esempio.txt")
+  val fw=new FileWriter(f)
+  val op=new PrintWriter(fw)
+  val data = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))
+  op(fw(op=>data.fo)) */
+
+
+
 
   //Questo è un esempio di scrittura su file. Dimmi che ne pensi. Non sono riuscito a tabularle bene, ma nemmeno ci ho provato tanto.
   def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
@@ -51,7 +59,7 @@ case class Stella (line: Any) {
 
   val data = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))
   printToFile(new File("example.txt")) {
-    p => data.foreach(p.println)
+    p => data.foreach(p.print)
   }
 
   println("ho scritto il file 'example.txt'")
