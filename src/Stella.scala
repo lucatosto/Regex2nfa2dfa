@@ -36,34 +36,13 @@ case class Stella (line: Any) {
 
   //TODO: a dinamica, intestastione flag (true o false variabili) //Luca:secondo me non bisogna farlo, possiamo usare un pattern matching
   println("NFA")
-  println(Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0  " , "/ ", " 1,3 ", "false"), List("1  " , "2 ", " / ", "false"), List("2  " , "/ ", " 1,3 ", "false"), List("3  " , "/ ", " / ", "true") )))
+  val data1 = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0  " , "/ ", " 1,3 ", "false"), List("1  " , "2 ", " / ", "false"), List("2  " , "/ ", " 1,3 ", "false"), List("3  " , "/ ", " / ", "true") ))
+  println(data1)
   println("DFA")
-println(Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true"))));
+  val data2 = Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true")))
+  println(data2)
 
-
- /* val f= new File("esempio.txt")
-  val fw=new FileWriter(f)
-  val op=new PrintWriter(fw)
-  val data = Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))
-  op(fw(op=>data.fo)) */
-
-
-
-
-  //Questo è un esempio di scrittura su file. Dimmi che ne pensi. Non sono riuscito a tabularle bene, ma nemmeno ci ho provato tanto.
-  def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
-    val p = new java.io.PrintWriter(f)
-    try { op(p) } finally { p.close() }
-  }
-
-
-  val data ="inserimento valori: NFA:\n"+ Tabulator.format(List(List("Stati", " a ", "ε", "flag"), List("0" , "/", "1,3", "false"), List("1" , "2", "/", "false"), List("2" , "/", "1,3", "false"), List("3" , "/", "/", "true") ))+ "\n\n\n\nInserimento DFA\n"+ Tabulator.format(List(List("Stati", "a", "flag"), List("S0(0,1,3)", "S1(1,2,3)", "true"), List("S1(1,2,3)", "S1(1,2,3)", "true")))
-  printToFile(new File("catalogo_conversioni.txt")) {
-
-    p => data.foreach(p.print)
-
-
-  }
+  PrintToFile(line, data1, data2)
 
   println("conversione completata, visualizza il file catalgo_conversioni")
 }
