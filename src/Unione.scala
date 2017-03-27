@@ -30,9 +30,13 @@ case class Unione (line: Any) {
     def rowSeparator(colSizes: Seq[Int]) = colSizes map { "-" * _ } mkString("+", "+", "+")
   }
 
-  //TODO: a dinamica, intestastione flag (true o false variabili)    //aUb
   println("NFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") )))
+  val data1 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") ))
+  println(data1)
   println("DFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") )))
+  val data2 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("0" , "1", "/", "false"), List("1" , "/", "2", "false"), List("2" , "/", "/", "true") ))
+  println(data2)
+
+  printToFile(line, data1, data2)
+
 }

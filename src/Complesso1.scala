@@ -32,8 +32,11 @@ case class Complesso1 (line: Any) {
 
   //TODO: a dinamica, intestastione flag (true o false variabili)  //(aub)*
   println("NFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "ε", "flag"), List("0" , "/", "/", "1,4", "false"), List("1" , "2", "/", "/", "false"), List("2" , "/", "3","/", "false"), List("3", "/", "/","1,4", "false"),List("3" , "/", "/","/", "true") )))
+  val data1 = Tabulator.format(List(List("Stati", "a", "b", "ε", "flag"), List("0" , "/", "/", "1,4", "false"), List("1" , "2", "/", "/", "false"), List("2" , "/", "3","/", "false"), List("3", "/", "/","1,4", "false"),List("3" , "/", "/","/", "true")))
+  println(data1)
   println("DFA")
-  println(Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1)", "S1(2)", "/", "false"), List("S1(2)", "/", "S2(1,3,4)", "false"), List("S2(1,3,4)", "S1(2)", "/", "true"))));
+  val data2 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1)", "S1(2)", "/", "false"), List("S1(2)", "/", "S2(1,3,4)", "false"), List("S2(1,3,4)", "S1(2)", "/", "true")))
+  println(data2)
 
+  PrintTofile(line, data1, data2)
 }
