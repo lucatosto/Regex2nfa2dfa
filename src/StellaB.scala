@@ -40,5 +40,5 @@ case class StellaB (line: Any) {
   
   PrintToFile(line, data1, data2)
 
-  println("ho scritto il file 'example.txt'")
+ // println("ho scritto il file 'example.txt'")
 }

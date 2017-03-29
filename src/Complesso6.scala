@@ -29,10 +29,10 @@ case class Complesso6 (line: Any) {
 
   //TODO: a dinamica, intestastione flag (true o false variabili)  //(a/b)*
   println("NFA")
-  val data1 = Tabulator.format(List(List("Stati", "a", "b", "ε", "flag"), List("0" , "/", "/", "1,3", "false"), List("1" , "2", "/", "/", "false"), List("2" , "/", "/","7", "false"), List("3" , "/", "/","4,6", "false"),List("4" , "/", "5","/", "false"),List("5" , "/", "/","4,6", "false"),List("6" , "/", "/","7", "false"),List("7" , "/", "/","/", "true") )))
+  val data1 = Tabulator.format(List(List("Stati", "a", "b", "ε", "flag"), List("0" , "/", "/", "1,3", "false"), List("1" , "2", "/", "/", "false"), List("2" , "/", "/","7", "false"), List("3" , "/", "/","4,6", "false"),List("4" , "/", "5","/", "false"),List("5" , "/", "/","4,6", "false"),List("6" , "/", "/","7", "false"),List("7" , "/", "/","/", "true") ))
   println(data1)
   println("DFA")
-  val data2 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1,3,4,6,7)","S1(2,7)", "S2(4,5,6,7)","true"), List("S1(2,7)", "/", "/", "true"), List("S2(4,5,6,7)", "/", "S2(4,5,6,7)", "true"))))
+  val data2 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1,3,4,6,7)","S1(2,7)", "S2(4,5,6,7)","true"), List("S1(2,7)", "/", "/", "true"), List("S2(4,5,6,7)", "/", "S2(4,5,6,7)", "true")))
   println(data2)
-  PrintTofile(line, data1, data2)
+  PrintToFile(line, data1, data2)
 }

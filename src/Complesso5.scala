@@ -34,5 +34,5 @@ case class Complesso5 (line: Any) {
   println("DFA")
   val data2 = Tabulator.format(List(List("Stati", "a", "b", "flag"), List("S0(0,1,2,4,5,7)","S1(2,3,4,7)", "S2(6,7)","true"), List("S1(2,3,4,7)", "S1(2,3,4,7)", "/", "true"), List("S2(6,7)", "/", "/", "true")))
   println(data2)
-  PrintTofile(line, data1, data2)
+  PrintToFile(line, data1, data2)
 }
